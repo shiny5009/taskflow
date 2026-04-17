@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Task - TaskFlow</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .page-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .form-card {
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: white;
+            font-size: 14px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .form-actions .btn {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <div class="page-container">
+        <div class="form-card glass-card">
+            <a href="dashboard.php" class="back-link">← Back to Dashboard</a>
+            
+            <h2 class="title text-center">Create New Task</h2>
+            <p class="subtitle text-center">Add a new task to your list</p>
+
+            <form action="php/add_task.php" method="POST">
+                <div class="form-group">
+                    <label for="title">Task Title *</label>
+                    <input type="text" id="title" name="title" class="form-control" 
+                           placeholder="Enter task title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" class="form-control" 
+                              placeholder="Enter task description (optional)" rows="6"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select id="status" name="status" class="form-control">
+                        <option value="pending">Pending</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </div>
+
+                <div class="form-actions">
+                    <a href="dashboard.php" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-success">Create Task</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
